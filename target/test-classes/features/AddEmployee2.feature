@@ -22,13 +22,13 @@ Feature: Add Employee
     When enter first name as "Ahmet" middle name as "Can" and last name as "Bicer"
     Then click on save Button
     And verify that "Ahmet Can Bicer" is added successfully
-
+#scenerio outline uses example keyword
   @examples
   Scenario Outline: Adding multiple employees without login details
     When enter employee "<First Name>", "<Middle Name>" and "<Last Name>"
     Then click on save Button
     And verify that "<First Name>", "<Middle Name>" and "<Last Name>" is successfully added
-
+#data tables
     Examples: 
       | First Name | Middle Name | Last Name |
       | Marko      | Jrty        | Smiths    |

@@ -4,13 +4,18 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+import java.util.Set;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoSuchFrameException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.UnexpectedTagNameException;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.hrms.testbase.BaseClass;
@@ -135,5 +140,139 @@ public class CommonMethods extends PageInitilizer{
 		return sdf.format(date);
 		
 	}
+	
+	/*
+	 * This method will click on checkbox or radio button by the 
+	 * given web elements and value
+	 * 
+	 * @param radiocheckboxes
+	 * @param value
+	 * 
+	 */
+	
+	public static void clickRadioOrCheckBox(List<WebElement>radioOrCheckBoxes, String value) {
+		
+		String actualValue;
+		for(WebElement radioOrCheckbox:radioOrCheckBoxes) {
+			actualValue = radioOrCheckbox.getAttribute("value").trim(); //trim is for "   male   " clean up
+			if(radioOrCheckbox.isEnabled() && actualValue.equals(value)) {
+				jsClick(radioOrCheckbox);//regular click'te visibility var
+				break;
+			}
+		}
+	}
+	
+	/*
+	 * this method will select an option from the dropdown by 
+	 * the given web element and visible text value 
+	 * 
+	 * @param dd
+	 * @param visibleTextOrValue
+	 * 
+	 */
+	
+	public static void selectDDValue(WebElement dd, String visibleTextOrValue) {
+		Select select = new Select(dd);
+		List<WebElement> options = select.getOptions();
+		for(WebElement option : options) {
+			if(option.getText().equals(visibleTextOrValue)) {
+				select.selectByVisibleText(visibleTextOrValue);
+				break;
+			}
+		}
+		
+	}
+	
+	/**
+	 * this method will select an option from the dropdown by the given webelement
+	 * and index
+	 * 
+	 * @param dd
+	 * @param visibleTextOrValue
+	 */
+	public static void selectDDValue(WebElement dd, int index) {
+		try {
+		Select select = new Select(dd);
+		List<WebElement> options = select.getOptions();
+		int size = options.size();
+		if(size>index) {
+			select.selectByIndex(index);
+		}
+		}catch(UnexpectedTagNameException e) {
+			e.printStackTrace();
+		}
+		
+		}
+		
+		/**
+		 * this method will switch to a frame by the given frame weblement
+		 * @param iFrame
+		 */
+		public static void switchToFrame(WebElement iFrame) {
+			try {
+				driver.switchTo().frame(iFrame);
+			} catch (NoSuchFrameException e) {
+				e.printStackTrace();
+			}
+			
+		}
+		
+		/**
+		 * this method will switch to a frame by the given frame index
+		 * @param frameIndex
+		 */
+		public static void switchToFrame(int frameIndex) {
+			try {
+				driver.switchTo().frame(frameIndex);
+			} catch (NoSuchFrameException e) {
+				e.printStackTrace();
+			}
+			
+		}
+		
+		/**
+		 * this method will switch to a frame by the given frame nameOrId
+		 * @param nameOrId
+		 */
+		public static void switchToFrame(String nameOrId) {
+			try {
+				driver.switchTo().frame(nameOrId);
+			} catch (NoSuchFrameException e) {
+				e.printStackTrace();
+			}
+			
+		}
+		
+		/**
+		 * this method will switch to a child window
+		 */
+		public static void switchToChildWindow() {
+			String mainWindow = driver.getWindowHandle();
+			Set<String> allWindows = driver.getWindowHandles();
+			for (String window : allWindows) {
+				if(!window.equals(mainWindow)) {
+					driver.switchTo().window(window);
+					break;
+				}
+			}
+		}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
 
