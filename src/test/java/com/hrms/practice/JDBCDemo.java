@@ -15,48 +15,48 @@ public class JDBCDemo {
 	String dbPassword = "syntaxhrm123";
 	//jdbc:mysql: //hostname:port/db name
 	String dbUrl = "jdbc:mysql://18.232.148.34:3306/syntaxhrm_mysql";
-//
-//@Test
-//public void newConnection() throws SQLException {
+
+@Test
+public void newConnection() throws SQLException {
+	Connection conn =  DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
+	System.out.println("DB Connection Succesful");
+	
+	Statement st = conn.createStatement();
+	ResultSet rs= st.executeQuery("select * from hs_hr_employees");
+	rs.next();
+	String firstname = rs.getString("emp_firstname");
+	System.out.println(firstname);
+	rs.next();
+	// second way to get data 
+	String firstname2 = rs.getObject("emp_firstname").toString();
+	System.out.println(firstname2);
+	while(rs.next()) {
+		String allData = rs.getObject("emp_firstname").toString();
+		System.out.println(allData);
+		}
+	
+	rs.close();
+	st.close();
+	conn.close();
+	
+}
+
+//@Test 
+//public void listTask() throws SQLException {
 //	Connection conn =  DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
 //	System.out.println("DB Succesful");
 //	
 //	Statement st = conn.createStatement();
-//	ResultSet rs= st.executeQuery("Select * from hs_hr_employees");
-//	rs.next();
-//	String firstname = rs.getString("emp_firstname");
-//	System.out.println(firstname);
-//	rs.next();
-//	// second way to get data 
-//	String firstname2 = rs.getObject("emp_firstname").toString();
-//	System.out.println(firstname2);
+//	ResultSet rs= st.executeQuery("Select * from ohrm_nationality");
+//	List<String>  nationalities =new ArrayList<>();
 //	while(rs.next()) {
-//		String allData = rs.getObject("emp_firstname").toString();
-//		System.out.println(allData);
-//		}
-//	
-//	rs.close();
-//	st.close();
-//	conn.close();
-//	
+//		String nationality = rs.getObject("name").toString();
+//		nationalities.add(nationality);
+//	}
+//	System.out.println(nationalities);
+//	for(String nat:nationalities) {
+//		System.out.println(nat);	
+//	}
 //}
-
-@Test 
-public void listTask() throws SQLException {
-	Connection conn =  DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
-	System.out.println("DB Succesful");
-	
-	Statement st = conn.createStatement();
-	ResultSet rs= st.executeQuery("Select * from ohrm_nationality");
-	List<String>  nationalities =new ArrayList<>();
-	while(rs.next()) {
-		String nationality = rs.getObject("name").toString();
-		nationalities.add(nationality);
-	}
-	System.out.println(nationalities);
-	for(String nat:nationalities) {
-		System.out.println(nat);	
-	}
-}
 
 }

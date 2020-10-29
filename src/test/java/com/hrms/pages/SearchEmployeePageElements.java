@@ -11,8 +11,6 @@ public class SearchEmployeePageElements extends BaseClass{
 	@FindBy(id = "empsearch_id")
 	public WebElement idField;
 	
-	
-	
 	@FindBy(id = "empsearch_employee_name_empName")
 	public WebElement empNameField;
 	

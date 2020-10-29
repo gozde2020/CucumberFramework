@@ -45,6 +45,10 @@ public class MetaData {
 			System.out.println(colNames);
 			
 		}
+		
+		rs.close();
+		st.close();
+		conn.close();
 	}
 
 }
