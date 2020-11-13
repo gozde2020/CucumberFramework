@@ -24,4 +24,21 @@ public class DashboardStepDefinitions extends CommonMethods{
 	    System.out.println(actualDashTabs);
 	    Assert.assertEquals(expectedDashTabs, actualDashTabs);
 	}
+	
+//	@Then("verify the following dashboard tabs")
+//	public void verify_the_following_dashboard_tabs(DataTable dashboardTabs) {
+//	List<String> expectedTabs = dashboardTabs.asList();
+//	List<String> actualTab = new ArrayList<String>();
+	
+//	for(WebElementt dashTab:dash.dashTabs){
+//  actualTabs.add(	dashTab.getText();
+//}
+// System.out.println(expectedTabs);
+	
+// System.out.println(actualTabs);
+//Assert.asserTrue(expectedTabs, actualTabs);
+//
+//
+
+
 }

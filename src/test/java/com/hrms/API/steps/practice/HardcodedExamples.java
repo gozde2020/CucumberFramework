@@ -24,11 +24,13 @@ public class HardcodedExamples {
 	/*
 	 * REST Assured - Java library specifically developed to automate REST endpoints
 	 * 
-	 * Given - Preparing your request When - What action will you preform, what type
-	 * of call are you making? Then - Verification
+	 * Given - Preparing your request 
+	 * When - What action will you perform, what type
+	 * of call are you making? 
+	 * Then - Verification
 	 * 
 	 */
-	//Concatenates with 
+	//Concatenates with endpoint during run time
 	String baseURI = RestAssured.baseURI = "http://18.232.148.34/syntaxapi/api";
 	String token = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MDM2MzU3MjIsImlzcyI6ImxvY2FsaG9zdCIsImV4cCI6MTYwMzY3ODkyMiwidXNlcklkIjoiMTI4OSJ9.dyKljx8Lc8EPknUXCyxVJnODIFxQWuGY6avz4SdmP4I";
 	static String employeeID;
@@ -76,7 +78,7 @@ public class HardcodedExamples {
 			//createEmployeeResponse.prettyPrint();
 			
 			//using Json to view the response body which lets us get the employee ID
-			//we are storing the employeeID as a static global variable to be able to use
+			//we are storing the employeeID as a static global variable to be able to use with other calls
 			employeeID = createEmployeeResponse.jsonPath().getString("Employee[0].employee_id");
 			//optional: printing employeeID
 			//System.out.println(employeeID);
@@ -85,7 +87,7 @@ public class HardcodedExamples {
 			createEmployeeResponse.then().assertThat().statusCode(201);
 
 			//verify response body "Message" is paired with "Entry Created";
-			//equalTo() method comes from static Hamcrest package -NEE TO IMPORT MANUALLY
+			//equalTo() method comes from static Hamcrest package -NEEd TO IMPORT MANUALLY
 			//static org.hamcrest.Matchers
 			createEmployeeResponse.then().assertThat().body("Message",equalTo("Entry Created"));
 			//verify created

@@ -11,7 +11,7 @@ import io.cucumber.junit.CucumberOptions;
 				 dryRun = false, //when set as true, will run over the feature steps and identify the missing implementation //not run-when true	 
 				 monochrome = true, // when set as true, will format the console outcome like 32m15 32m3
 				 //@feature in en ustune koyarsak hepsini run eder
-				 tags = "@JobTitleValidation", //Login.feature in           icindeki scenario' ya @smoke ekliyoruz.
+				 tags = "@dash", //Login.feature in           icindeki scenario' ya @smoke ekliyoruz.
 				 strict = false, // when set as true, will fail the execution when undefined step is found //it runs the test whenver it comes unimpmeneted steps it fails
 				 plugin = {"pretty", // will print the steps inside the console
 						 "html:target/cucumber-default-reports", // generates default html report 

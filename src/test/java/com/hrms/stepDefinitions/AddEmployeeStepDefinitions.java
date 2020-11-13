@@ -29,7 +29,7 @@ public class AddEmployeeStepDefinitions extends CommonMethods{
 	}
 	@Then("verify add employee succesfully")
 	public void verify_add_employee_succesfully() {
-		Assert.assertEquals(viewPersonalD.profPicText.getText(), "Chadwick Boseman");  
+		Assert.assertEquals(viewPersonalD.profPicText.getText(), "Chadwick Bosem");  
 	}
 	@When("add new employee without login details")
 	public void add_new_employee_without_login_details() {

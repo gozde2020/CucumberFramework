@@ -1,82 +1,47 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/resources/features/APIWorkflow.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/resources/features/Dashboard.feature");
 formatter.feature({
-  "name": "Syntax HRMS API Workflow",
-  "description": "  Description: This feature file tests Syntax HRMS API Workflow",
+  "name": "Dashboard Functionality",
+  "description": "",
   "keyword": "Feature"
 });
-formatter.background({
-  "name": "",
-  "description": "",
-  "keyword": "Background"
-});
-formatter.step({
-  "name": "a JWT is generated",
-  "keyword": "Given "
-});
-formatter.match({
-  "location": "com.hrms.API.Final.steps.GenerateTokenSteps.a_JWT_is_generated()"
-});
-formatter.result({
-  "status": "passed"
-});
 formatter.scenario({
-  "name": "Creating an employee",
+  "name": "Dashboard tab verification",
   "description": "",
   "keyword": "Scenario",
   "tags": [
     {
-      "name": "@APIworkflow"
+      "name": "@dash"
     }
   ]
 });
-formatter.step({
-  "name": "a request is prepared to create an employee",
-  "keyword": "Given "
-});
-formatter.match({
-  "location": "com.hrms.API.Final.steps.APIFinalSteps.a_request_is_prepared_to_create_an_employee()"
-});
-formatter.result({
+formatter.before({
   "status": "passed"
 });
 formatter.step({
-  "name": "a POST call is made to create an employee",
+  "name": "login with valid credentials",
   "keyword": "When "
 });
 formatter.match({
-  "location": "com.hrms.API.Final.steps.APIFinalSteps.a_POST_call_is_made_to_create_an_employee()"
+  "location": "com.hrms.stepDefinitions.LoginStepDefinitions.login_with_valid_credentials()"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "the status code for creating and employee is 201",
+  "name": "verify the following dashboard tabs",
+  "rows": [
+    {}
+  ],
   "keyword": "Then "
 });
 formatter.match({
-  "location": "com.hrms.API.Final.steps.APIFinalSteps.the_status_code_for_creating_and_employee_is(java.lang.Integer)"
+  "location": "com.hrms.stepDefinitions.DashboardStepDefinitions.verify_the_following_dashboard_tabs(io.cucumber.datatable.DataTable)"
 });
 formatter.result({
   "status": "passed"
 });
-formatter.step({
-  "name": "the employee is created contains key \"Message\" and value \"Entry Created\"",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "com.hrms.API.Final.steps.APIFinalSteps.the_employee_is_created_contains_key_and_value(java.lang.String,java.lang.String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "the employee ID \"Employee[0].employee_id\" is stored as a global variable to be used for other calls",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "com.hrms.API.Final.steps.APIFinalSteps.the_employee_ID_is_stored_as_a_global_variable_to_be_used_for_other_calls(java.lang.String)"
-});
-formatter.result({
+formatter.embedding("image/png", "embedded0.png", "Dashboard tab verification");
+formatter.after({
   "status": "passed"
 });
 });
