@@ -6,11 +6,11 @@ public class APIPayloadCommonMethods {
 	public static String createEmployeeBody() {
 
 		String createEmployeeBody = "{\n" + 
-				"  \"emp_firstname\": \"Syntaxxxx\",\n" + 
-				"  \"emp_lastname\": \"Batch\",\n" + 
-				"  \"emp_middle_name\": \"Seven\",\n" + 
-				"  \"emp_gender\": \"M\",\n" + 
-				"  \"emp_birthday\": \"2009-10-11\",\n" + 
+				"  \"emp_firstname\": \"hello\",\n" + 
+				"  \"emp_lastname\": \"there\",\n" + 
+				"  \"emp_middle_name\": \"Syntax\",\n" + 
+				"  \"emp_gender\": \"F\",\n" + 
+				"  \"emp_birthday\": \"2001-10-11\",\n" + 
 				"  \"emp_status\": \"Zero hours contract\",\n" + 
 				"  \"emp_job_title\": \"QA Tester\"\n" + 
 				"}";

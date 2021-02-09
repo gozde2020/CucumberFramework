@@ -25,7 +25,6 @@ public class LoginStepDefinitions extends CommonMethods{
 	    Assert.assertTrue(dash.welcomeMsg.isDisplayed());
 	}
 
-	
 	@When("login with invalid credentials")
 	public void login_with_invalid_credentials() {
 		login.loginToHrms("Admin11", "Syntaks");

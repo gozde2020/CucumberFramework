@@ -20,10 +20,7 @@ public class PageInitilizer extends BaseClass {
 	protected static ViewEmployeePageElements viewEmp;
 	protected static JobTitlePageElements jobTitles;
 	protected static APICommonMethods apiMethods;
-	
 	public static void initializePageObjects() {
-		
-	
 	login =new LoginPageElements();
 	dash =new DashboardPageElements();
 	addEmp = new AddEmployeePageElements();

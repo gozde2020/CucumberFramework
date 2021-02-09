@@ -17,7 +17,7 @@ import org.junit.Test;
 public class Task {
 	String dbUsername = "syntax_hrm";
 	String dbPassword = "syntaxhrm123";
-	String dbUrl = "jdbc:mysql://18.232.148.34:3306/syntaxhrm_mysql";
+	String dbUrl = "jdbc:mysql://3.237.189.167:3306/syntaxhrm_mysql";
 	
 	@Test
 	public void advancedStuff() throws SQLException {

@@ -15,17 +15,19 @@ public class HrdCodedInstructor {
 	/*
 	 * REST Assured - Java library specifically developed to automate REST endpoints
 	 * 
-	 * Given - Preparing your request When - What action will you perform, what type
-	 * of call are you making? Then - Verification
+	 * Given - Preparing your request 
+	 * When - What action will you perform, what type of call are you making?
+	 * Then - Verification
 	 * 
 	 */
 
 	/** Concatenates with endpoint during run time */
-	String baseURI = RestAssured.baseURI = "http://18.232.148.34/syntaxapi/api";
-	String token = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MDM2MzU3MjEsImlzcyI6ImxvY2FsaG9zdCIsImV4cCI6MTYwMzY3ODkyMSwidXNlcklkIjoiNjQ1In0.BDJultMrrfjFi-hYjoHtwnIhbg4GvBIghTrRK-MI-Rg";
+	String baseURI = RestAssured.baseURI = "http://3.237.189.167/syntaxapi/api";
+	//String token = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MDM2MzU3MjEsImlzcyI6ImxvY2FsaG9zdCIsImV4cCI6MTYwMzY3ODkyMSwidXNlcklkIjoiNjQ1In0.BDJultMrrfjFi-hYjoHtwnIhbg4GvBIghTrRK-MI-Rg";
+	String token= "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTE0MjM0NjMsImlzcyI6ImxvY2FsaG9zdCIsImV4cCI6MTYxMTQ2NjY2MywidXNlcklkIjoiMTI4OSJ9.oKmBqb4DwUfG_wmPGgy1HL8Gwv_6wjspXBf6zqIkLi8";
 	static String employeeID;
 
-	// @Test
+	 @Test
 	public void sampleTest() {
 
 		/** BaseURI for all endpoints */
@@ -36,7 +38,7 @@ public class HrdCodedInstructor {
 		/** Preparing request for /getOneEmployee.php */
 		/** Using .log.all to print out everything being sent with the request */
 		RequestSpecification preparingGetOneEmployeeRequest = given().header("Authorization", token)
-				.header("Content-Type", "application/json").queryParam("employee_id", "3695").log().all();
+				.header("Content-Type", "application/json").queryParam("employee_id", "13139A").log().all();
 
 		/** Making call to /getOneEmployee.php */
 		Response getOneEmployeeResponse = preparingGetOneEmployeeRequest.when().get("/getOneEmployee.php");
@@ -58,9 +60,12 @@ public class HrdCodedInstructor {
 		RequestSpecification createEmployeeRequest = given().header("Authorization", token)
 				.header("Content-Type", "application/json")
 				.body("{\n" + "  \"emp_firstname\": \"syntaxFirstName\",\n"
-						+ "  \"emp_lastname\": \"syntaxLastName\",\n" + "  \"emp_middle_name\": \"syntaxMiddleName\",\n"
-						+ "  \"emp_gender\": \"F\",\n" + "  \"emp_birthday\": \"2000-07-11\",\n"
-						+ "  \"emp_status\": \"Employee\",\n" + "  \"emp_job_title\": \"Cloud Architect\"\n" + "}");
+						+ "  \"emp_lastname\": \"syntaxLastName\",\n" 
+						+ "  \"emp_middle_name\": \"syntaxMiddleName\",\n"
+						+ "  \"emp_gender\": \"F\",\n" 
+						+ "  \"emp_birthday\": \"2000-07-11\",\n"
+						+ "  \"emp_status\": \"Employee\",\n" 
+						+ "  \"emp_job_title\": \"Cloud Architect\"\n" + "}");
 		// .log().all();
 
 		/** making call to /createEmployee.php */
@@ -206,7 +211,7 @@ public class HrdCodedInstructor {
 
 	}
 
-	@Test
+	//@Test
 	public void dPUTupdateCreatedEmployee() {
 		/** Task completed */
 		given().body("{\n" + "  \"employee_id\": \"" + employeeID + "\",\n"

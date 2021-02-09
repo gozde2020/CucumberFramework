@@ -33,7 +33,7 @@ public class GenerateTokenSteps {
 	}
 	
 //	//String BaseURI = RestAssured.baseURI = "http://18.232.148.34/syntaxapi/api";
-//		static public String token;
+//		public static String token;
 //
 //		@Given("a JWT is generated")
 //		public void a_JWT_is_generated() {

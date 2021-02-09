@@ -41,8 +41,8 @@ public class APIFinalSteps extends CommonMethods{
 		/**
 		 * The payload MUST be a String! Below line of code is doing the same as above
 		 */
-		// request = apiMethods.createEmployeeRequest(GenerateTokenSteps.token,
-		// APIPayloadCommonMethods.createEmployeeBody());
+//		 request = apiMethods.createEmployeeRequest(GenerateTokenSteps.token,
+//		 APIPayloadCommonMethods.createEmployeeBody());
 	}
 
 	@When("a POST call is made to create an employee")
@@ -64,7 +64,7 @@ public class APIFinalSteps extends CommonMethods{
 	public void the_employee_ID_is_stored_as_a_global_variable_to_be_used_for_other_calls(String value) {
 		employeeID = response.jsonPath().getString(value);
 	}
-
+/////////////////////////////
 	@Given("a request is prepared to retrieve the created employee")
 	public void a_request_is_prepared_to_retrieve_the_created_employee() {
 		request = APICommonMethods.getOneEmployeeRequest(GenerateTokenSteps.token, employeeID);

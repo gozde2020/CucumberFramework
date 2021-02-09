@@ -61,7 +61,8 @@ public class HardcodedExamples {
 	@Test
 	public void aPOSTcreateEmployee() {
 			//preparing request 
-			RequestSpecification createEmployeeRequest = given().header("Authorization",token).header("Content-Type", "application/json").body("{\n" + 
+			RequestSpecification createEmployeeRequest = 
+					given().header("Authorization",token).header("Content-Type", "application/json").body("{\n" + 
 					"  \"emp_firstname\": \"Syntaxxxx\",\n" + 
 					"  \"emp_lastname\": \"Batch\",\n" + 
 					"  \"emp_middle_name\": \"Seven\",\n" + 
@@ -72,7 +73,8 @@ public class HardcodedExamples {
 					"}");//.log().all();
 			
 			//making call to create an employee
-			Response createEmployeeResponse = createEmployeeRequest.when().post("/createEmployee.php");
+			Response createEmployeeResponse = 
+					createEmployeeRequest.when().post("/createEmployee.php");
 			//FOR SEEING Response createEmployeeResponse = createEmployeeRequest.when().log().all().post("/createEmployee.php");
 			//printing responses
 			//createEmployeeResponse.prettyPrint();

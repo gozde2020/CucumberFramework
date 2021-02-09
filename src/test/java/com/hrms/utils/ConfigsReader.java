@@ -10,22 +10,18 @@ public class ConfigsReader {
 	static Properties prop;
 	
 	public static void readProperties(String filePath)  {
-		
 		try {
-	
 		
 		FileInputStream fis = new FileInputStream(filePath);
 		prop = new Properties();
 		prop.load(fis);
 		fis.close();
-		
 		}catch(FileNotFoundException e) {
 			e.printStackTrace();
 		}catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-	
 	public static String getPropValue(String key) {//the key in configuration.nproperties
 		return prop.getProperty(key);
 	}

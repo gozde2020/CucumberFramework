@@ -14,7 +14,7 @@ public class JDBCDemo {
 	String dbUsername = "syntax_hrm";
 	String dbPassword = "syntaxhrm123";
 	//jdbc:mysql: //hostname:port/db name
-	String dbUrl = "jdbc:mysql://18.232.148.34:3306/syntaxhrm_mysql";
+	String dbUrl = "jdbc:mysql://3.237.189.167:3306/syntaxhrm_mysql";
 
 @Test
 public void newConnection() throws SQLException {
@@ -23,6 +23,7 @@ public void newConnection() throws SQLException {
 	
 	Statement st = conn.createStatement();
 	ResultSet rs= st.executeQuery("select * from hs_hr_employees");
+	
 	rs.next();
 	String firstname = rs.getString("emp_firstname");
 	System.out.println(firstname);

@@ -19,7 +19,7 @@ public class TaskVersion2 {
 	
 	String dbusername = "syntax_hrm";
 	String dbpasssword = "syntaxhrm123";
-	String dbUrl = "jdbc:mysql://18.232.148.34:3306/syntaxhrm_mysql";
+	String dbUrl = "jdbc:mysql://3.237.189.167:3306/syntaxhrm_mysql";
 	
 	@Test
 	public void method1() throws SQLException {

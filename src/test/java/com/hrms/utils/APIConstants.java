@@ -3,7 +3,7 @@ package com.hrms.utils;
 import io.restassured.RestAssured;
 
 public class APIConstants {
-	public static final String BaseURI = RestAssured.baseURI = "http://18.232.148.34/syntaxapi/api";
+	public static final String BaseURI = RestAssured.baseURI = "http://3.237.189.167/syntaxapi/api";
 
 	public static final String GENERATE_TOKEN_URI = BaseURI + "/generateToken.php";
 
